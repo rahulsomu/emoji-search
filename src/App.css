@@ -1,38 +1,141 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+  font-family: 'Rubik', sans-serif;
+  width: 100%;
+  background: #131313;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body::-webkit-scrollbar{
+  display: none;
 }
+.app{
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+}
+.input{
+ transition: .2s;
+ background: #131313;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+
+}
+.input input{
+  width: 70%;
+  height: 4rem;
+  outline: none;
+  border: none;
+  border-radius:5px;
+  padding: 0 1rem;
+  font-size: 1.8em;
+  display: flex;
+  align-items: center;
+  color: rgb(132, 0, 255);
+  z-index: 1;
+}
+.input input::placeholder{
+  color: rgb(132, 0, 255);
+  font-size: 1.5rem;
+  opacity: 30%;
+}
+.success{
+  color: rgb(73, 226, 111);
+  position: absolute;
+  transition: .2s;
+  /* bottom: 20px; */
+}
+.result{
+  max-width: 70%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top:1rem;
+}
+.searchResult{
+  background: rgb(132, 0, 255);
+  height: 10rem;
+  margin: 1rem;
+  width: 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  padding: 5px;
+  text-align: center;
+  position: relative;
+  border-radius: 5px;
+  transition: transform .2s;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.424);
+  cursor: pointer;
+  
+}
+.searchResult:hover{
+  transform: scale(1.1);
+  background: rgb(105, 1, 202);
+
+}
+.emoji{
+  font-size: 5.5em;
+  filter: saturate(0);
+}
+.searchResult:hover .emoji{
+  filter: saturate(1);
+
+}
+.emojiDesc{
+  margin-top: .5rem;
+  font-size: .8rem;
+  text-transform: capitalize;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.copyToClipboard{
+  color: white;
+  font-size: 14px;
+  position: absolute;
+  right: 50%;
+  transform: translateX(50%);
+  top: -20px;
+  visibility: hidden;
 }
+.searchResult:hover .copyToClipboard{
+ visibility: visible;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+}
+.emojis{
+  display: flex;
+  font-size: 10em;
+  position: absolute;
+  top: 8rem;
+}
+@media(max-width:916px){
+  .emojis{
+    font-size:8em ;
   }
-  to {
-    transform: rotate(360deg);
+}
+@media(max-width:730px){
+  .emojis{
+    font-size:5em ;
+    top: 12rem;
+  }
+}
+@media(max-width:475px){
+  .emojis{
+    font-size:3em ;
+    top: 15rem;
+  }
+  .input input::placeholder{
+    color: rgb(132, 0, 255);
+    font-size: 1.2rem;
+    opacity: 30%;
+  }
+  .input input{
+    font-size: 1.2rem;
   }
 }
